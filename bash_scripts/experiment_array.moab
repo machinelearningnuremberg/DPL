@@ -1,0 +1,20 @@
+#!/bin/bash
+#MSUB -l walltime=04:00:00
+#MSUB -l nodes=1:ppn=2
+#MSUB -l pmem=6gb
+#MSUB -N power_law_taskset
+
+# This is a workaround for a known bug.
+# Arrayjobs need to be given the output directory
+cd /home/fr/fr_fr/fr_ak1206/projekte/powerlaw/DeepRegret
+
+module load tools/conda/latest
+conda activate power_law
+
+
+JOBID=(${MOAB_JOBID//[/ })
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+
+python /home/fr/fr_fr/fr_ak1206/projekte/powerlaw/DeepRegret/main_experiment.py --index $MOAB_JOBARRAYINDEX --benchmark_name "$benchmark" --surrogate_name "power_law" --dataset_name "$dataset" --nr_epochs 250 --ensemble_size 5 --budget_limit 1000 --project_dir "/home/fr/fr_fr/fr_ak1206/projekte/powerlaw/DeepRegret" --output_dir "$dir"
