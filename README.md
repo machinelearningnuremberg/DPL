@@ -14,6 +14,13 @@ conda activate dpl
 cat requirements.txt | xargs -n 1 -L 1 pip install
 ```
 
+## Add the LCBench code & data
+
+
+Copy the contents of `https://github.com/automl/LCBench` into a folder `lc_bench` in the root DPL repo.
+
+From `https://figshare.com/projects/LCBench/74151` download `data_2k.zip` and extract the json file into `DPL/lc_bench/results/data_2k.json`.
+
 ## Running the Deep Power Laws (DPL) code
 
 The entry script to running the experiment is `main_experiment.py`. The module can be used to start a full HPO search.
