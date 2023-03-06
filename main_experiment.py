@@ -41,14 +41,14 @@ parser.add_argument(
 parser.add_argument(
     '--dataset_name',
     type=str,
-    default='imagenet_resnet_batch_size_512',
+    default='credit-g',
     help='The name of the dataset used in the experiment.'
          'The dataset names must be matched with the benchmark they belong to.',
 )
 parser.add_argument(
     '--benchmark_name',
     type=str,
-    default='pd1',
+    default='lcbench',
     help='The name of the benchmark used in the experiment. '
          'Every benchmark offers its own distinctive datasets. Available options are lcbench, taskset and pd1.',
 )
@@ -61,7 +61,7 @@ parser.add_argument(
 parser.add_argument(
     '--project_dir',
     type=str,
-    default='Project/Path',
+    default='.',
     help='The directory where the project files are located.',
 )
 parser.add_argument(

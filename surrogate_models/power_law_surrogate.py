@@ -480,6 +480,7 @@ class PowerLawSurrogate:
         configurations = configurations.to(device=self.dev)
         budgets = torch.tensor(budgets)
         budgets = budgets.to(device=self.dev)
+        hp_curves = torch.tensor(hp_curves)
         hp_curves = hp_curves.to(device=self.dev)
         network_real_budgets = torch.tensor(real_budgets / self.max_benchmark_epochs)
         network_real_budgets.to(device=self.dev)
@@ -782,7 +783,6 @@ class PowerLawSurrogate:
         )
 
         max_value_index = np.argmax(acq_func_values)
-        max_value_index = max_value_index[0]
 
         return max_value_index
 

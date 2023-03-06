@@ -345,12 +345,34 @@ def get_method_dataset_regret_epoch_performance(
 
 
 def get_method_dataset_number_configs(
-        benchmark: LCBench,
+        benchmark: BaseBenchmark,
         dataset_name: str,
         method_name: str,
         benchmark_surrogate_results: str,
         benchmark_name: str = 'lcbench',
-):
+) -> float:
+    """Calculate the number of unique configurations
+    explored.
+
+    Calculates the number of unique configurations that
+    were explored during the HPO phase.
+
+    Args:
+        benchmark: BaseBenchmark
+            The benchmark object.
+        dataset_name: str
+            The dataset for which the number of configurations will
+            be calculated.
+        method_name: str
+            The method name.
+        benchmark_surrogate_results: str
+            The path where the results are located.
+        benchmark_name: str
+            The name of the benchmark
+
+    Returns: float
+        The number of configurations explored averaged over the repetitions.
+    """
     repeat_nrs = [nr for nr in range(0, 10)]
 
     number_configs_repeats = []
@@ -380,30 +402,34 @@ def get_method_dataset_number_configs(
 
 
 def get_method_dataset_number_max_configs(
-        benchmark: LCBench,
+        benchmark: BaseBenchmark,
         dataset_name: str,
         method_name: str,
         benchmark_surrogate_results: str,
         benchmark_name: str = 'lcbench',
-):
-    repeat_nr_baselines = [nr for nr in range(0, 10)]
-    repeat_nr_power_law = [11, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    repeat_nr_dyhpo = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+) -> float:
+    """Return the number of unique configurations that
+    were explored at the max budget.
 
-    if method_name == 'power_law':
-        repeat_nrs = repeat_nr_power_law
-    elif method_name == 'smac':
-        repeat_nrs = repeat_nr_power_law
-    elif method_name == 'dyhpo':
-        repeat_nrs = repeat_nr_dyhpo
-    else:
-        repeat_nrs = repeat_nr_baselines
+    Return the number of unique configurations explored during
+    the HPO phase until the end/max budget.
 
-    # not run by Martin
-    if benchmark_name == 'pd1':
-        repeat_nrs = repeat_nr_power_law
-        if method_name == 'dragonfly':
-            repeat_nrs = repeat_nr_baselines
+    Args:
+        benchmark: BaseBenchmark
+            The benchmark object.
+        dataset_name: str
+            The name of the dataset.
+        method_name: str
+            The method name.
+        benchmark_surrogate_results: str
+            The path where the results are located.
+        benchmark_name: str
+            The benchmark name.
+
+    Returns: float
+        The number of configurations explored maximally.
+    """
+    repeat_nrs = [nr for nr in range(0, 10)]
 
     number_configs_repeats = []
     for repeat_nr in repeat_nrs:
@@ -426,7 +452,7 @@ def get_method_dataset_number_max_configs(
                 return -1
         else:
             result_info = result_info['hp']
-            result_budgets = result_budgets['budgets']
+            result_budgets = result_info['epochs']
 
         config_ids = []
         for budget_index, budget in enumerate(result_budgets):
@@ -614,7 +640,6 @@ def generate_epoch_performance_data(
 ):
     benchmark_class = {
         'pd1': PD1,
-        'nasbench201': NASBench201,
     }
 
     benchmark_surrogate_results = os.path.join(surrogate_results_path, benchmark_name)
