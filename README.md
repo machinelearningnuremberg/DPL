@@ -62,5 +62,13 @@ The plots expect the following result folder structure:
 │   │   │   ├── dataset_name_repetitionid.json
 
 ```
-
+## Citation
+```
+@article{kadra2023deep,
+  title={Deep Power Laws for Hyperparameter Optimization},
+  author={Kadra, Arlind and Janowski, Maciej and Wistuba, Martin and Grabocka, Josif},
+  journal={arXiv preprint arXiv:2302.00441},
+  year={2023}
+}
+```
 
