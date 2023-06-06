@@ -64,11 +64,13 @@ The plots expect the following result folder structure:
 ```
 ## Citation
 ```
-@article{kadra2023deep,
-  title={Deep Power Laws for Hyperparameter Optimization},
-  author={Kadra, Arlind and Janowski, Maciej and Wistuba, Martin and Grabocka, Josif},
-  journal={arXiv preprint arXiv:2302.00441},
-  year={2023}
+@article{kadra2023power,
+      title={Power Laws for Hyperparameter Optimization}, 
+      author={Arlind Kadra and Maciej Janowski and Martin Wistuba and Josif Grabocka},
+      year={2023},
+      eprint={2302.00441},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }
 ```
 
