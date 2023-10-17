@@ -1,4 +1,4 @@
-# Deep Power Laws for Hyperparameter Optimization
+# Scaling Laws for Hyperparameter Optimization
 
 Hyperparameter optimization is an important subfield of machine learning that focuses on tuning the hyperparameters of a chosen algorithm to achieve peak performance. Recently, there has been a stream of methods that tackle the issue of hyperparameter optimization, however, most of the methods do not exploit the scaling law property of learning curves. In this work, we propose Deep Power Law (DPL), a neural network model conditioned to yield predictions that follow a power-law scaling pattern. Our model dynamically decides which configurations to pause and train incrementally by making use of multi-fidelity estimation. We compare our method against 7 state-of-the-art competitors on 3 benchmarks related to tabular, image, and NLP datasets covering 57 diverse search spaces. Our method achieves the best results across all benchmarks by obtaining the best any-time results compared to all competitors.
 
