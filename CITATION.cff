@@ -1,0 +1,43 @@
+title: Scaling Laws for Hyperparameter Optimization
+abstract: Hyperparameter optimization is an important subfield of machine learning that focuses on tuning the hyperparameters of a chosen algorithm to achieve peak performance. Recently, there has been a stream of methods that tackle the issue of hyperparameter optimization, however, most of the methods do not exploit the dominant power law nature of learning curves for Bayesian optimization. In this work, we propose Deep Power Laws (DPL), an ensemble of neural network models conditioned to yield predictions that follow a power-law scaling pattern. Our method dynamically decides which configurations to pause and train incrementally by making use of gray-box evaluations. We compare our method against 7 state-of-the-art competitors on 3 benchmarks related to tabular, image, and NLP datasets covering 59 diverse tasks. Our method achieves the best results across all benchmarks by obtaining the best any-time results compared to all competitors.
+authors:
+  - family-names: Kadra
+    given-names: Arlind
+    orcid: "https://orcid.org/0000-0001-9308-6576"
+  - family-names: Janowski
+    given-names: Maciej
+  - family-names: Wistuba
+    given-names: Martin
+  - family-names: Grabocka
+    given-names: Josif
+cff-version: 1.2.0
+date-released: "2023-02-01"
+identifiers:
+  - type: url
+    value: "https://github.com/releaunifreiburg/DPL/"
+    description: Latest version
+keywords:
+  - scaling laws
+  - power law
+  - hyperparameter optimization
+  - gray-box hyperparameter optimization
+  - multi-fidelity hyperparameter optimization
+license: Apache-2.0
+message: If you use DPL in your project, please cite our paper.
+repository-code: "https://github.com/releaunifreiburg/DPL/"
+preferred-citation:
+  title: "Scaling Laws for Hyperparameter Optimization"
+  type: conference-paper
+  authors:
+  - family-names: Kadra
+    given-names: Arlind
+  - family-names: Janowski
+    given-names: Maciej
+  - family-names: Wistuba
+    given-names: Martin
+  - family-names: Grabocka
+    given-names: Josif
+  collection-title: "Thirty-seventh Conference on Neural Information Processing Systems" # booktitle
+  collection-type: "proceedings"
+  year: 2023
+  url: "https://openreview.net/forum?id=ghzEUGfRMD"
